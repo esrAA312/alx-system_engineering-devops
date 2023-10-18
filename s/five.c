@@ -4,6 +4,7 @@ void handle_cd(char *args[])
 {
 	int  arg_count = 0;
 	char *home_directory = getenv("HOME");
+char current_directory[MAX_COMMAND_LENGTH];
 
 	if (arg_count == 1 || strcmp(args[1], "~") == 0)
 	{

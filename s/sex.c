@@ -2,6 +2,8 @@
 
 void handle_exit(char *args[], int *exit_status)
 {
+	int arg_count;
+
 	if (arg_count == 2)
 		*exit_status = atoi(args[1]);
 	exit(*exit_status);
