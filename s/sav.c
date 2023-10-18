@@ -1,8 +1,8 @@
 #include "main.h"
 
-void handle_ls(char *args)
+void handle_ls(char *args[], int co)
 {
-	if (arg_count == 1 || (arg_count == 2 && strcmp(args[1], "-l") == 0))
+	if (co == 1 || (co == 2 && strcmp(args[1], "-l") == 0))
 {
 		char *ls_args[4] = { "ls", "-l", NULL };
 		pid_t ls_pid = fork();
@@ -19,7 +19,7 @@ void handle_ls(char *args)
 			int ls_status;
 
 			waitpid(ls_pid, &ls_status, 0); }}
-		else if (arg_count == 2 && strcmp(args[1], "/tmp") == 0)
+		else if (co == 2 && strcmp(args[1], "/tmp") == 0)
 {
 		char *ls_args[4] = { "ls", "/tmp", NULL };
 

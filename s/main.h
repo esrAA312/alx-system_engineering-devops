@@ -14,19 +14,12 @@
 
 extern char **environ;
 #define MAX_COMMAND_LENGTH 1024
-const char *built_in_commands[] = {
-	"cd",
-	"exit",
-	"env",
-	"ls",
-};
+extern char *built_in_commands[];
 
-void execute_external_command(char *args[], int *exit_status);
-void handle_ls(char *args);
+void execute_external_command(char *args[]);
+void handle_ls(char *args[], int co);
 void handle_env(void);
-void handle_exit(char *args[], int *exit_status);
-void handle_cd(char *args[]);
-ssize_t custom_read(char *buffer, size_t length);
-void display_prompt(void);
+void handle_exit(char *args[], int co);
+void handle_cd(char *args[], int co);
 int is_built_in_command(const char *command);
 #endif

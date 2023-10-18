@@ -2,12 +2,13 @@
 
 int main(void)
 {
-	int exit_status = 0, arg_count = 0;
+	int arg_count = 0, exit_status = 0;
 	char *home_directory = getenv("HOME"), command[MAX_COMMAND_LENGTH],
 	current_directory[MAX_COMMAND_LENGTH], *args[MAX_COMMAND_LENGTH], *token;
 	bool enough = false;
 	ssize_t read_bytes;
 	size_t command_length;
+
 	if (home_directory == NULL)
 	{
 		perror("getenv");
@@ -20,8 +21,8 @@ int main(void)
 	{
 		if (isatty(STDIN_FILENO) == 0)
 			enough = true;
-		display_prompt();
-		read_bytes = custom_read(command, sizeof(command));
+		write(STDOUT_FILENO, "$ ", 2);
+		read_bytes = read(STDIN_FILENO, command, sizeof(command));
 		if (read_bytes < 0)
 		{
 			perror("read");
@@ -45,14 +46,14 @@ int main(void)
 			if (is_built_in_command(args[0]))
 			{
 				if (strcmp(args[0], "cd") == 0)
-					handle_cd(args);
+					handle_cd(args, arg_count);
 				else if (strcmp(args[0], "exit") == 0)
-					handle_exit(args, &exit_status);
+					handle_exit(args, arg_count);
 				else if (strcmp(args[0], "env") == 0)
 					handle_env();
 				else if (strcmp(args[0], "ls") == 0)
-					handle_ls(args); }
+					handle_ls(args, arg_count); }
 			else
-				execute_external_command(args, &exit_status);
+				execute_external_command(args);
 		} }
 	return (0); }

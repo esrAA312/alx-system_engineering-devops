@@ -1,8 +1,10 @@
 #include "main.h"
 
-void execute_external_command(char *args[], int *exit_status)
+void execute_external_command(char *args[])
 {
 	pid_t child_pid = fork();
+int exit_status;
+   (void) exit_status;
 
 	if (child_pid < 0)
 	{
@@ -23,6 +25,6 @@ void execute_external_command(char *args[], int *exit_status)
 		int status;
 
 		waitpid(child_pid, &status, 0);
-		*exit_status = WEXITSTATUS(status);
+		exit_status = WEXITSTATUS(status);
 	}
 }

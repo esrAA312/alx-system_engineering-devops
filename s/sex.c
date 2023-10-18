@@ -1,12 +1,12 @@
 #include "main.h"
 
-void handle_exit(char *args[], int *exit_status)
+void handle_exit(char *args[], int co)
 {
-	int arg_count;
+	int exit_status = 0;
 
-	if (arg_count == 2)
-		*exit_status = atoi(args[1]);
-	exit(*exit_status);
+	if (co == 2)
+		exit_status = atoi(args[1]);
+	exit(exit_status);
 }
 
 void handle_env(void)
