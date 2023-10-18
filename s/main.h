@@ -12,9 +12,9 @@
 #include <errno.h>
 #include <stdbool.h>
 
-extern char** environ;
+extern char **environ;
 #define MAX_COMMAND_LENGTH 1024
-const char* built_in_commands[] = {
+const char *built_in_commands[] = {
 	"cd",
 	"exit",
 	"env",
@@ -23,10 +23,10 @@ const char* built_in_commands[] = {
 
 void execute_external_command(char *args[], int *exit_status);
 void handle_ls(char *args);
-void handle_env();
+void handle_env(void);
 void handle_exit(char *args[], int *exit_status);
 void handle_cd(char *args[]);
 ssize_t custom_read(char *buffer, size_t length);
-void display_prompt();
-int is_built_in_command(const char* command);
+void display_prompt(void);
+int is_built_in_command(const char *command);
 #endif

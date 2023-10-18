@@ -2,6 +2,9 @@
 
 void handle_cd(char *args[])
 {
+	int  arg_count = 0;
+	char *home_directory = getenv("HOME");
+
 	if (arg_count == 1 || strcmp(args[1], "~") == 0)
 	{
 		if (chdir(home_directory) != 0)

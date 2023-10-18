@@ -24,7 +24,7 @@ void handle_ls(char *args)
 		char *ls_args[4] = { "ls", "/tmp", NULL };
 
 		pid_t ls_pid = fork();
-
+}
 		if (ls_pid == 0)
 		{
 			char *envp[] = { NULL };
@@ -38,5 +38,7 @@ void handle_ls(char *args)
 
 			waitpid(ls_pid, &ls_status, 0); }
 		else
-		write(STDOUT_FILENO, "Usage: ls or ls -l or ls /tmp\n", 31)
+		write(STDOUT_FILENO, "Usage: ls or ls -l or ls /tmp\n", 31);
+
+		
 }
