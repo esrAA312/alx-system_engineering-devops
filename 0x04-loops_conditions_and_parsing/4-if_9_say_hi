@@ -1,14 +1,11 @@
 #!/usr/bin/env bash
-# displays Best School 10 times.
+# Displaying "Best School" 10 times with a special condition for the 9th iteration
 
 coco=0
-while [ $coco -lt 11 ]
-do
-    if [ $coco = 9 ]
-    then
+while [ $coco -lt 11 ]; do if [ $coco -eq 9 ]; then
         echo "Hi"
     else
         echo "Best School"
     fi
-    coco+=1
+    ((coco++))
 done
