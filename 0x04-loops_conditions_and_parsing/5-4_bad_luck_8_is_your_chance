@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+# display
+
+coco=1
+
+while [ "$coco" -lt 11 ]
+do
+    if [ "$coco" -eq 4 ]; then
+        echo "bad luck"
+    elif [ "$coco" -eq 8 ]; then
+        echo "good luck"
+    else
+        echo "Best School"
+    fi
+
+    ((coco++))
+done

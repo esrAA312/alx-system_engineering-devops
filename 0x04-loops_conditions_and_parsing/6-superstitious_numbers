@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+# Displaying
+soso=1
+
+while [ $soso -le 20 ]; do
+    case $soso in
+        4)
+            echo $soso
+            echo "bad luck from China"
+            ;;
+        9)
+            echo $soso
+            echo "bad luck from Japan"
+            ;;
+        17)
+            echo $soso
+            echo "bad luck from Italy"
+            ;;
+        *)
+            echo $soso        ;;
+    esac
+
+    ((soso++))
+done
