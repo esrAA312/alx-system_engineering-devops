@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+#display
+file_path="school"
+
+if [ -e "$file_path" ]; then
+    echo "school file exists"
+
+    [ -s "$file_path" ] && echo "school file is not empty" || echo "school file is empty"
+
+    [ -f "$file_path" ] && echo "school is a regular file"
+else
+    echo "school file does not exist"
+fi

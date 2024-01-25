@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+#dislay
+
+for yy in *[!-.]*
+do
+    if [ -f "$yy" ]
+    then
+        echo "${yy#*-}"
+    fi
+done`	

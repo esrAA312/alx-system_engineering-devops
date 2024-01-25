@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+#clk
+
+hour=0
+while [ $hour -le 12 ]; do
+    echo "Hour: $hour"
+    
+    if [ $hour -le 12 ]; then
+        minute=1
+    else
+        minute=0
+    fi    
+    while [ $minute -le 59 ]; do
+        echo $minute
+        ((minute++))
+    done
+    
+    ((hour++))
+done
