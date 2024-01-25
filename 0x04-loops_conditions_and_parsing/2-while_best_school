@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+# displaying "Best School" 10 times
+coco=1
+while [ $coco -le 10 ]
+do
+    echo "Best School"
+        coco=$((count+1))
+	done
