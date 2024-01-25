@@ -6,4 +6,4 @@ until [ $coco -ge 10 ]
 do
     echo "Best School"
         ((coco++))
-	done
+done

@@ -4,5 +4,5 @@ coco=1
 while [ $coco -le 10 ]
 do
     echo "Best School"
-        coco=$((count+1))
-	done
+        coco=$((coco+1))
+done
