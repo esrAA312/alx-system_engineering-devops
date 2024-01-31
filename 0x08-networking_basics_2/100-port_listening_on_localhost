@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+# Check if the netcat command is available
+if ! command -v nc &> /dev/null; then
+    echo "netcat command not found. Please make sure it is installed."
+    exit 1
+fi
+
+# Listen on port 98
+nc -l -p 98

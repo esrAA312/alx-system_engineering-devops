@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+# show attached ips
+
+interfaces=$(ip -o link show | awk -F': ' '{print $2}')
+
+for interface in $interfaces; do
+
+  ips=$(ip -o -4 addr show dev "$interface" | awk '{print $4}')
+  for ip in $ips; do
+    if [[ "$ip" != 127.* ]]; then
+      echo "$ip"
+    fi
+  done
+done
