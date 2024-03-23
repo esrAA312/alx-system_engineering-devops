@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-#your SSH client configuration
+#Sharing your SSH client configuration
 Host *
-    PasswordAuthentication no
-    IdentityFile ~/.ssh/school
+      PasswordAuthentication no
+            IdentityFile ~/.ssh/school
