@@ -1,13 +1,13 @@
 #!/usr/bin/env bash
 # Bash script to set up nginx server and configure redirection and custom error page
 
-# Update package repository
+
 sudo apt-get update
 
-# Install nginx
+
 sudo apt-get install -y nginx
 
-# Create index.html file with "Hello World!"
+
 echo "Hello World!" | sudo tee /var/www/html/index.html > /dev/null
 
 # Add redirection rule to nginx configuration
