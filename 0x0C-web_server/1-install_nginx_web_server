@@ -1,21 +1,11 @@
 #!/usr/bin/env bash
-# A bash script that installs nginx web server on a server
+# Commands to install Nginx on Web-Sever-01
 
-# Update package index
-sudo apt-get update
+sudo apt-get -y update
+sudo apt-get -y install nginx
 
-# Install nginx
-sudo apt-get install -y nginx
+sudo ufw allow 'Nginx HTTP'
 
-# Replace default index.html with custom content
 echo "Hello World!" | sudo tee /var/www/html/index.html
-# Restart nginx (not using systemctl)
-service nginx restart
 
-# Confirm nginx is listening on port 80
-netstat -tuln | grep ':80' > /dev/null
-if mycmd ; then
-    echo "Nginx is listening on port 80."
-else
-    echo "Nginx failed to start or listen on port 80."
-fi
+sudo service nginx start
