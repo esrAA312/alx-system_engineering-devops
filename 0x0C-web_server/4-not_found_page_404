@@ -13,7 +13,7 @@ sudo bash -c 'cat << EOF > /var/www/html/404.html
     </head>
     <body>
         <h1>404 Not Found</h1>
-	    <p>Ceci n'est pas une page</p>
+	    <p>"Ceci n'est pas une page"</p>
 	    </body>
 	    </html>
 	    EOF'
