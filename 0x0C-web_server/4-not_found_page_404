@@ -1,25 +1,23 @@
 #!/usr/bin/env bash
-# Customizing a 404-error_page
+# Bash script to set up nginx server and configure redirection and custom error page
 
-# Updating Packages before performing installations
+# Update package repository
 sudo apt-get update
+
+# Install nginx
 sudo apt-get install -y nginx
 
-# Creating an index.html page
-echo "Hello World!" | sudo tee /var/www/html/index.html
+# Create index.html file with "Hello World!"
+echo "Hello World!" | sudo tee /var/www/html/index.html > /dev/null
 
-# Performing a "moved permanently redirection" (301)
-new_string="server_name _;\n\trewrite ^\/redirect_me https:\/\/github.com\/besthor permanent;"
-sudo sed -i "s/server_name _;/$new_string/" /etc/nginx/sites-enabled/default
+# Add redirection rule to nginx configuration
+sudo sed -i '38i\rewrite ^/redirect_me https://www.youtube.com/watch?v=QH2-TGUlwu4 permanent;' /etc/nginx/sites-available/default
 
-# Creating a 404 Custom error page
-echo "Ceci n'est pas une page" | sudo tee /var/www/html/404.html
-new_string="listen 80 default_server;\n\terror_page 404 \/404.html;\n\tlocation = \/404.html {\n\t\troot \/var\/www\/html;\n\t\tinternal;\n\t}"
+# Create custom 404 error page
+echo "Ceci n'est pas une page" | sudo tee /var/www/html/error_404.html > /dev/null
 
-sudo sed -i "s/listen 80 default_server;/$new_string/" /etc/nginx/sites-enabled/default
+# Configure nginx to use custom error page for 404 errors
+sudo sed -i '39i\error_page 404 /error_404.html;' /etc/nginx/sites-available/default
 
-# Testing configurations for syntax errors
-sudo nginx -t
-
-# restart nginx after implementing changes
-sudo service nginx restart
+# Start nginx service
+sudo service nginx start
