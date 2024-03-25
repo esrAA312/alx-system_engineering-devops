@@ -1,21 +1,21 @@
-# Automating project requirements using Puppet
-
 package { 'nginx':
 	  ensure => installed,
 }
 
-file_line { 'install':
-	  ensure => 'present',
+file_line { 'redirect':
+	  ensure => present,
 		   path   => '/etc/nginx/sites-enabled/default',
-		     after  => 'listen 80 default_server;',
-		       line   => 'rewrite ^/redirect_me https://www.github.com/besthor permanent;',
+		     line   => 'rewrite ^/redirect_me https://www.github.com/besthor permanent;',
+		       after  => 'listen 80 default_server;',
 }
 
 file { '/var/www/html/index.html':
-	  content => 'Hello World!',
+	  ensure  => file,
+		    content => 'Hello World!',
 }
 
 service { 'nginx':
 	  ensure  => running,
-		    require => Package['nginx'],
+		    enable  => true,
+		      require => Package['nginx'],
 }
