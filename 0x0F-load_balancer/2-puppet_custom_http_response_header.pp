@@ -15,4 +15,4 @@ exec { 'update':
 		       }
 		       -> exec { 'restart service':
 			       command  => 'sudo service nginx restart',
-			       provider => shell,
+		       }			       provider => shell,
