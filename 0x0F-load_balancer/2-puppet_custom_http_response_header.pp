@@ -1,3 +1,4 @@
+#pp
 exec { 'update':
 	command => 'apt-get update',
 		user    => 'root',
