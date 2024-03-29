@@ -1,4 +1,4 @@
-etup New Ubuntu server with nginx
+#stup New Ubuntu server with nginx
 # and add a custom HTTP header
 
 exec { 'update system':
