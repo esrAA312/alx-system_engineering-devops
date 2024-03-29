@@ -1,4 +1,4 @@
-# Setup New Ubuntu server with ngin
+#puppet advance
 exec { 'update':
 	command  => 'sudo apt-get update',
 		 provider => shell,
@@ -15,4 +15,4 @@ exec { 'update':
 		       }
 		       -> exec { 'restart service':
 			       command  => 'sudo service nginx restart',
-		       }			       provider => shell,
+			       provider => shell,
