@@ -1,4 +1,4 @@
-,#puppet advance
+#puppet
 exec { 'update':
 	command  => 'sudo apt-get update',
 		 provider => shell,
