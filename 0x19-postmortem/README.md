@@ -1,4 +1,5 @@
 
+
 Posted by: Esraa Hassan 
 
 
@@ -47,3 +48,4 @@ Root Cause(s):
 	Internal: Effective communication via Slack channels facilitated collaboration and timely resolution of the issue.
 	External: Regular updates were posted on our social media channels and website to keep customers informed about the progress of the resolution efforts and the eventual restoration of service.
 
+![IMG_20240508_022011_741](https://github.com/esrAA312/alx-system_engineering-devops/assets/138700352/2a3fb57e-e884-4f4d-936a-c557f6764df4)
